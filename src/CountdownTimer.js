@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { DateTime } from "luxon";
 
 const CountdownTimer = () => {
     const [timeLeft, setTimeLeft] = useState("");
 
     const updateCountdown = () => {
-        const now = new Date();
-        const hoursNow = now.getHours();
+        const now = DateTime.now().setZone("Asia/Tokyo");
+        const hoursNow = now.hour;
 
-        let nextOpenTime = new Date();
-        nextOpenTime.setHours(23, 0, 0, 0);
+        let nextOpenTime = DateTime.now().setZone("Asia/Tokyo").set({ hour: 23, minute: 0, second: 0, millisecond: 0 });
 
         if (hoursNow >= 23) {
-            nextOpenTime.setDate(nextOpenTime.getDate() + 1);
-            nextOpenTime.setHours(8, 0, 0, 0);
+            nextOpenTime = nextOpenTime.plus({ days: 1 }).set({ hour: 8, minute: 0, second: 0, millisecond: 0 });
         }
 
         if (hoursNow >= 23 || hoursNow < 8) {
