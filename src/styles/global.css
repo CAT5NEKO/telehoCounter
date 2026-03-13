@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --font-win95: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, "MS UI Gothic", sans-serif;
+  --color-win95-silver: #c0c0c0;
+  --color-win95-desktop: #008080;
+  --color-win95-white: #ffffff;
+  --color-win95-light: #dfdfdf;
+  --color-win95-dark: #808080;
+  --color-win95-darker: #404040;
+  --color-win95-black: #000000;
+  --color-win95-titlebar-from: #000080;
+  --color-win95-titlebar-to: #1084d0;
+  --color-win95-titlebar-text: #ffffff;
+  --color-win95-highlight: #000080;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  body {
+    font-family: var(--font-win95);
+    font-size: 11px;
+    background-color: var(--color-win95-desktop);
+    color: var(--color-win95-black);
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@layer components {
+  .win95-window {
+    background-color: var(--color-win95-silver);
+    border-top: 2px solid var(--color-win95-white);
+    border-left: 2px solid var(--color-win95-white);
+    border-right: 2px solid var(--color-win95-darker);
+    border-bottom: 2px solid var(--color-win95-darker);
+    box-shadow:
+      inset 1px 1px 0 var(--color-win95-light),
+      inset -1px -1px 0 var(--color-win95-dark);
+    min-width: 420px;
+  }
+
+  .win95-titlebar {
+    background: linear-gradient(
+      to right,
+      var(--color-win95-titlebar-from) 0%,
+      var(--color-win95-titlebar-to) 100%
+    );
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3px;
+    user-select: none;
+  }
+
+  .win95-titlebar-text {
+    color: var(--color-win95-titlebar-text);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .win95-ctrl-btn {
+    width: 20px;
+    height: 18px;
+    background-color: var(--color-win95-silver);
+    border-top: 1.5px solid var(--color-win95-white);
+    border-left: 1.5px solid var(--color-win95-white);
+    border-right: 1.5px solid var(--color-win95-darker);
+    border-bottom: 1.5px solid var(--color-win95-darker);
+    box-shadow:
+      inset 0.5px 0.5px 0 var(--color-win95-light),
+      inset -0.5px -0.5px 0 var(--color-win95-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0;
+    font-family: var(--font-win95);
+    color: var(--color-win95-black);
+  }
+
+  .win95-ctrl-btn:active {
+    border-top: 1.5px solid var(--color-win95-darker);
+    border-left: 1.5px solid var(--color-win95-darker);
+    border-right: 1.5px solid var(--color-win95-white);
+    border-bottom: 1.5px solid var(--color-win95-white);
+    box-shadow:
+      inset 0.5px 0.5px 0 var(--color-win95-dark),
+      inset -0.5px -0.5px 0 var(--color-win95-light);
+  }
+
+  .win95-ctrl-minimize {
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: var(--color-win95-black);
+    margin-top: 8px;
+  }
+
+  .win95-ctrl-maximize {
+    display: block;
+    width: 10px;
+    height: 9px;
+    border: 1.5px solid var(--color-win95-black);
+    border-top-width: 3px;
+  }
+
+  .win95-content {
+    background-color: var(--color-win95-silver);
+    padding: 2px;
+  }
+
+  .win95-panel {
+    background-color: var(--color-win95-silver);
+    border-top: 1.5px solid var(--color-win95-dark);
+    border-left: 1.5px solid var(--color-win95-dark);
+    border-right: 1.5px solid var(--color-win95-white);
+    border-bottom: 1.5px solid var(--color-win95-white);
+    box-shadow:
+      inset 1px 1px 0 var(--color-win95-darker),
+      inset -1px -1px 0 var(--color-win95-light);
+  }
+
+  .win95-display {
+    background-color: var(--color-win95-white);
+    border-top: 1.5px solid var(--color-win95-dark);
+    border-left: 1.5px solid var(--color-win95-dark);
+    border-right: 1.5px solid var(--color-win95-white);
+    border-bottom: 1.5px solid var(--color-win95-white);
+    box-shadow:
+      inset 1px 1px 0 var(--color-win95-darker),
+      inset -1px -1px 0 var(--color-win95-light);
+    padding: 4px 8px;
+    color: var(--color-win95-black);
+    letter-spacing: 0.05em;
+  }
+
+  .win95-statusbar {
+    border-top: 1.5px solid var(--color-win95-dark);
+    border-left: 1.5px solid var(--color-win95-dark);
+    border-right: 1.5px solid var(--color-win95-white);
+    border-bottom: 1.5px solid var(--color-win95-white);
+    padding: 1px 4px;
+    color: var(--color-win95-darker);
+  }
+
+  .win95-desktop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-win95-desktop);
+  }
+}
